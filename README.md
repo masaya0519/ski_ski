@@ -1,24 +1,27 @@
-# README
+# サイト名
+スキー好きー
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+スキー好きがおすすめするスキー場
 
-Things you may want to cover:
+### サイトテーマ
+スキー・スノーボードがより一層楽しめる！
 
-* Ruby version
+### テーマを選んだ理由
+自分の趣味がスノーボードをすることで、同じ場所のスキー場に飽きてきてしまったり、初心者と行くときに初心者でも行けるスキー場が簡単に見れるサイトを作りたいと思いました。
 
-* System dependencies
+### ターゲットユーザ
+主に、若年層、家族
 
-* Configuration
+### 主な利用シーン
+スキー場を探すとき
 
-* Database creation
+## 設計書
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
