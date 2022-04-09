@@ -25,7 +25,7 @@ Rails.application.routes.draw do
       collection do
         get 'users/unsubscribe'
         patch 'users/withdraw'
-      end
+      end  
     end
   end
 

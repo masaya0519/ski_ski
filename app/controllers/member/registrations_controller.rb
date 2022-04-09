@@ -10,12 +10,12 @@ class Member::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-   def create
-     p '----create---'
-     p params
-     p '-------'
-     super
-   end
+  # def create
+  #   p '----create---'
+  #   p params
+  #   p '-------'
+  #   super
+  # end
 
   # GET /resource/edit
   # def edit
