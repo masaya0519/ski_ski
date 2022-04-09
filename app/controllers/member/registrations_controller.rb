@@ -10,9 +10,12 @@ class Member::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+   def create
+     p '----create---'
+     p params
+     p '-------'
+     super
+   end
 
   # GET /resource/edit
   # def edit
@@ -59,4 +62,20 @@ class Member::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  def after_sign_up_path_for(resource)
+    user_path(:id)
+  end
+
+  # def unsubscribe
+  #   @member = Member.find_by(name: params[:name])
+  # end
+
+  # def withdraw
+  #   @member = Member.find_by(name: params[:name])
+  #   @member.update(is_valid: false)
+  #   reset_session
+  #   redirect_to root_path
+  # end
+
 end
