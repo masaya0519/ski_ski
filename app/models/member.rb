@@ -3,8 +3,9 @@ class Member < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         
+
   def active_for_authentication?
     super && (is_deleted == false)
   end
+  has_many :reviews
 end
