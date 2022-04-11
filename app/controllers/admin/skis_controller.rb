@@ -1,9 +1,9 @@
 class Admin::SkisController < ApplicationController
-  
+
   def new
     @ski = Ski.new
   end
-  
+
   def index
     @skis = Ski.all
   end
@@ -14,7 +14,7 @@ class Admin::SkisController < ApplicationController
       redirect_to admin_skis_path
     else
       render :new
-    end  
+    end
   end
 
   def show
@@ -31,11 +31,11 @@ class Admin::SkisController < ApplicationController
       redirect_to admin_ski_path(@ski)
     else
       render :edit
-    end  
+    end
   end
-  
+
   private
-  
+
   def ski_params
     params.require(:ski).permit(:image, :ski_name, :explanation, :elevation, :running_distance, :cover, :quality, :genre_id,)
   end

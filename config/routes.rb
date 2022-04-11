@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :skis, only: [:index, :new, :create, :show, :edit, :update]
-    resources :customers, only: [:index, :show]
+    resources :customers, only: [:index, :show, :edit, :update, :destroy]
     resources :genres, only: [:index, :create, :edit, :update]
   end
 
@@ -25,7 +25,7 @@ Rails.application.routes.draw do
       collection do
         get 'users/unsubscribe'
         patch 'users/withdraw'
-      end  
+      end
     end
   end
 
