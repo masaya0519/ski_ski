@@ -18,10 +18,22 @@ class Member::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
+  def reject_member
+    @member = Member.find_by(name: params[:member][:name])
+    if @member
+      if @member.valid_password?(params[:member][:password]) && (@member.is_deleted == false)
+        flash[:notice] = "退会済みです。再度ご登録をしてご利用ください。"
+        redirect_to new_member_registration
+      else
+        flash[:notice] = "項目を入力してください"
+      end
+    end
+  end
 end

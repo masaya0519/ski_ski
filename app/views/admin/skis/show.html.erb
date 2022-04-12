@@ -1,2 +1,52 @@
-<h1>Admin::Skis#show</h1>
-<p>Find me in app/views/admin/skis/show.html.erb</p>
+<div class="container col-xs-6">
+  <div class="row">
+　  <div class="col-xs-12 mt-3">
+ 　  　<h3><strong>スキー場詳細</strong></h3>
+ 　　</div>
+  </div>
+  <div class="row align-items-center m-4">
+    <div class="col-lg text-center mb-4">
+      <% if @ski.image.attached? %>
+        <%= image_tag @ski.image, size:'300x250' %>
+      <% else %>
+        <%= image_tag 'no_image', size: "300x300" %>
+      <% end %>
+    </div>
+    <div class="col-lg">
+      <table class="table">
+        <tr>
+          <th>スキー場名</th>
+          <td><%= @ski.ski_name %></td>
+        </tr>
+        <tr>
+          <th>説明</th>
+          <td><%= @ski.explanation %></td>
+        </tr>
+        <tr>
+          <th>ジャンル</th>
+          <td><%= @ski.genre.genre_name %></td>
+        </tr>
+        <tr>
+          <th>標高</th>
+          <td><%= @ski.elevation %>m</td>
+        </tr>
+        <tr>
+          <th>滑走距離</th>
+          <td><%= @ski.running_distance %>m</td>
+        </tr>
+        <tr>
+          <th>積雪量</th>
+          <td><%= @ski.cover %>cm</td>
+        </tr>
+        <tr>
+          <th>雪質</th>
+          <td><%= @ski.quality %></td>
+        </tr>
+      </table>
+      <div class="d-flex justify-content-around">
+        <p><%= link_to "編集する",edit_admin_ski_path(@ski), class:"btn btn-success" %></p>
+        <p><%= link_to "スキー場一覧へ戻る", admin_skis_path, class:"btn btn-primary" %></p>
+      </div>
+    </div>
+  </div>
+</div>

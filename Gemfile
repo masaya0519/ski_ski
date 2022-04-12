@@ -58,4 +58,5 @@ gem 'devise'
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
+gem 'kaminari','~> 1.2.1'
 end

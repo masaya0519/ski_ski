@@ -1,40 +1,7 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    get 'skis/index'
-    get 'skis/new'
-    get 'skis/create'
-    get 'skis/show'
-    get 'skis/edit'
-    get 'skis/update'
-  end
-  namespace :admin do
-    get 'customers/index'
-    get 'customers/show'
-  end
-  namespace :admin do
-    get 'genres/create'
-    get 'genres/index'
-    get 'genres/edit'
-    get 'genres/update'
-  end
-  namespace :member do
-    get 'reviews/new'
-    get 'reviews/create'
-    get 'reviews/index'
-    get 'reviews/destroy'
-  end
-  namespace :member do
-    get 'skis/show'
-  end
-  namespace :member do
-    get 'users/show'
-    get 'users/edit'
-    get 'users/update'
-    get 'users/unsubscribe'
-    get 'users/withdraw'
-  end
-  #管理者
+  get 'homes/top'
+    #管理者
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
@@ -44,5 +11,26 @@ Rails.application.routes.draw do
   registrations: "member/registrations",
   sessions: 'member/sessions'
 }
+
+  namespace :admin do
+    resources :skis, only: [:index, :new, :create, :show, :edit, :update]
+    resources :customers, only: [:index, :show, :edit, :update, :destroy]
+    resources :genres, only: [:index, :create, :edit, :update]
+  end
+
+  scope module: :member do
+    resources :reviews, only: [:new, :create, :index, :destroy]
+    resources :skis, only: [:show]
+    resources :users, only: [:show, :edit, :update,] do
+      collection do
+        get 'users/unsubscribe'
+        patch 'users/withdraw'
+      end
+    end
+    resources :genres, only: [:index]
+  end
+
+  root to: 'homes#top'
+  get 'homes/about'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
