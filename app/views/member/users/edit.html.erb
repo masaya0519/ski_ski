@@ -1,2 +1,26 @@
-<h1>Member::Users#edit</h1>
-<p>Find me in app/views/member/users/edit.html.erb</p>
+<div class='container'>
+  <div class='row mt-3'>
+    <div class="col-md-3 bg-light m-4 text-center">
+      <h5 class="text-center bg-light">会員情報編集</h5>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 mx-auto mt-3">
+       <%= form_with model: @member, url: user_path do |f| %>
+          <div class="row form-group">
+            <%= f.label "氏名", class: "col-sm-2" %>
+            <%= f.text_field :name %>
+          </div>
+          <div class="row form-group">
+            <%= f.label "メールアドレス", class: "col-sm-2" %>
+            <%= f.text_field :email %>
+          </div>
+
+      <%= f.submit "編集内容を保存", class: "btn btn-sm btn-success offset-2" %>
+      <%= link_to "退会する", users_unsubscribe_users_path, class: "btn btn-danger offset-3" %>
+     <% end %>
+
+    </div>
+  </div>
+</div>

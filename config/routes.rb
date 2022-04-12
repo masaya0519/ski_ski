@@ -27,6 +27,7 @@ Rails.application.routes.draw do
         patch 'users/withdraw'
       end
     end
+    resources :genres, only: [:index]
   end
 
   root to: 'homes#top'

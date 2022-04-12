@@ -1,1 +1,22 @@
 topページ
+<%= render "member/skis/genre", genres: @genres %>
+<div class="container mt-4">
+ <div class="mt-4 offset-2">
+    <h3>おすすめスキー場</h3>
+      <div class="row">
+        <% @skis.each do |ski| %>
+          <div class="col-3">
+            <div class="card border border-0">
+              <%= link_to ski_path(ski) do %>
+                <%= image_tag ski.image, size:'250x200' %>
+              <% end %>
+              <div class="card-body">
+                <h6 class="card-title"><strong><%= ski.ski_name %></strong></h6>
+                  <p class="card-text"><%= ski.explanation %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+  </div>
+</div>
