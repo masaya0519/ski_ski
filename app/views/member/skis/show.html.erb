@@ -5,14 +5,14 @@
  　  　<h3><strong>スキー場詳細</strong></h3>
  　　</div>
   </div>
-  <div class="row align-items-center m-4">
-    <div class="col-lg text-center mb-4">
-      <% if @ski.image.attached? %>
-        <%= image_tag @ski.image, size:'300x250' %>
-      <% else %>
-        <%= image_tag 'no_image', size: "300x300" %>
-      <% end %>
-    </div>
+  <div class="row mx-aout.d-block">
+    <% if @ski.image.attached? %>
+      <%= image_tag @ski.image, size:'1140x650' %>
+    <% else %>
+      <%= image_tag 'no_image', size: "300x300" %>
+    <% end %>
+  </div>
+  <div class="row text-center">
     <div class="col-lg">
       <table class="table">
         <tr>
@@ -44,8 +44,9 @@
           <td><%= @ski.quality %></td>
         </tr>
       </table>
+      <%= render "member/skis/new"%>
       <div class="d-flex justify-content-around">
-        <p><%= link_to "詳細へ戻る", genres_path, class:"btn btn-primary" %></p>
+        <p><%= link_to "詳細へ戻る", genres_path(genre_id: @ski.genre.id), class:"btn btn-primary" %></p>
       </div>
     </div>
   </div>

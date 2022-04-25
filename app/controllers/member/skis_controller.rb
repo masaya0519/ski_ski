@@ -5,6 +5,7 @@ class Member::SkisController < ApplicationController
     if params[:genre_id] != nil
       @skis = @skis.where(genre_id: params[:genre_id])
     end
-    # @genre = Genre.find(params[:genre_id])
+    @review = Review.new
   end
+  
 end

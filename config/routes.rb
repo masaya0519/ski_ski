@@ -19,8 +19,9 @@ Rails.application.routes.draw do
   end
 
   scope module: :member do
-    resources :reviews, only: [:new, :create, :index, :destroy]
-    resources :skis, only: [:show]
+    resources :skis, only: [:show] do
+      resources :reviews, only: [:new, :create, :index, :destroy]
+    end
     resources :users, only: [:show, :edit, :update,] do
       collection do
         get 'users/unsubscribe'

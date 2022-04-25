@@ -3,11 +3,22 @@ class Member::ReviewsController < ApplicationController
   end
 
   def create
+    ski = Ski.find(params[:ski_id])
+    review = current_member.reviews.new(review_params)
+    review.ski_id = ski.id
+    review.save
+    redirect_to ski_path(ski)
   end
 
   def index
   end
 
   def destroy
+  end
+
+  private
+
+  def review_params
+    params.require(:review).permit(:review)
   end
 end
