@@ -1,10 +1,12 @@
 <ul class="navbar-nav">
   <li class="list-group-item">
-    <div class="d-flex flex-row bd-highlight mb-3">
+    <div class="d-flex flex-row bd-highlight justify-content-center">
     <% genres.each do |genre| %>
-      <div class="p-1 bd-highlight">
+      <div class="p-1 bd-highlight mx-4">
         <%= link_to genres_path(genre_id: genre.id) do %>
-        <%= genre.genre_name %>
+        <span class="btn btn-secondary">
+          <%= genre.genre_name %>
+        </span>
       </div>
         <% end %>
     <% end %>

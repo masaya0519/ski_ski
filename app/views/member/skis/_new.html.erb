@@ -4,6 +4,9 @@
   <div class="row">
     <%= review.member.name %>
     <%= review.created_at.strftime('%Y/%m/%d') %><%= review.review %>
+    <% if review.member == current_member %>
+      <%= link_to "削除", ski_review_path(@ski.id, review), method: :delete %>
+    <% end %>
   </div>
   <% end %>
 </div>

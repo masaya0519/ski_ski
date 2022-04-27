@@ -1,8 +1,6 @@
+<%= render "member/skis/genre", genres: @genres %>
 <div class="container">
   <div class="row">
-
-    <%= render "member/skis/genre", genres: @genres %>
-
     <div class="col-10 mx-auto mt-4 ">
       <h1 class="font-weight-bold"><%= @genre.genre_name %>地方一覧</h1>
         <h3 class="ml-3">
@@ -12,7 +10,7 @@
       <div class="row">
         <% @skis.each do |ski| %>
           <div class= "col-3">
-            <%= link_to ski_path(ski.id)  do %>
+            <%= link_to ski_path(ski.id) do %>
               <% if ski.image.attached? %>
                 <%= image_tag ski.image, :size => "200x200" %><br/>
               <% else %>

@@ -31,6 +31,10 @@
               <li class="nav-item">
                 <%= link_to 'ログアウト', destroy_member_session_path, method: :delete, class: 'nav-link text-light' %>
               </li>
+              <%= search_form_for @q, url: seach_path do |f| %>
+                <%= f.search_field :ski_name_cont %>
+                <%= f.submit "検索" %>
+              <% end %>
   <%# 管理者ログイン後のヘッダー　%>
             <% elsif admin_signed_in? %>
               <li class="nav-item">
@@ -59,6 +63,10 @@
               <li>
                 <%= link_to "管理者", new_admin_session_path, class: 'nav-link text-light' %>
               </li>
+              <%= search_form_for @q, url: seach_path do |f| %>
+                <%= f.search_field :ski_name_cont %>
+                <%= f.submit "検索" %>
+              <% end %>
             <% end %>
             </ul>
           </div>

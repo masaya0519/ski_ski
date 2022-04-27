@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-
+  before_action :set_seach
   before_action :configure_permitted_parameters , if: :devise_controller?
 
   def after_sign_in_path_for(resource)
@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
 
   def after_sign_out_path_for(resource)
     root_path
+  end
+  
+  def set_seach
+    @q = Ski.ransack(params[:q])
   end
 
   private

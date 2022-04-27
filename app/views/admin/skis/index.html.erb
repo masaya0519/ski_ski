@@ -11,30 +11,19 @@
 　</div>
   <div class="row">
     <div class="col-md-10 mx-auto">
-      <table class="table">
-        <thead class="bg-light text-center">
-          <th class="col-2">スキー場名</th>
-          <th class="col-2">説明</th>
-          <th class="col-1">標高</th>
-          <th class="col-2">滑走距離</th>
-          <th class="col-1">積雪量</th>
-          <th class="col-2">雪質</th>
-          <th class="col-2">ジャンル</th>
-        </thead>
-        <tbody class="text-center">
-          <% @skis.each do |ski| %>
-            <tr>
-              <td><%= link_to ski.ski_name, admin_ski_path(ski.id) %></td>
-              <td><%= ski.explanation %></td>
-              <td><%= ski.elevation %>m</td>
-              <td><%= ski.running_distance %>m</td>
-              <td><%= ski.cover %>cm</td>
-              <td><%= ski.quality%></td>
-              <td><%= ski.genre.genre_name %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+      <% @skis.each do |ski| %>
+        <div class="col-8">
+          <%= link_to ski.ski_name, admin_ski_path(ski.id) %>
+          <%= ski.explanation %>
+        </div>
+        <div class="col-4">
+          <%= ski.elevation %>m
+          <%= ski.running_distance %>m
+          <%= ski.cover %>cm
+          <%= ski.quality%>
+          <%= ski.genre.genre_name %>
+        </div>
+      <% end %>
     </div>
+  </div>
 </div>
- <!--<div class="col-lg-2 offset-lg-5"><%#= paginate(@skis) %></div>-->

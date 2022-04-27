@@ -8,4 +8,6 @@ class Member::SkisController < ApplicationController
     @review = Review.new
   end
   
+  def index
+  end
 end

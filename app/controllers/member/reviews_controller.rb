@@ -14,6 +14,8 @@ class Member::ReviewsController < ApplicationController
   end
 
   def destroy
+    Review.find(params[:id]).destroy
+    redirect_to ski_path(params[:ski_id])
   end
 
   private
