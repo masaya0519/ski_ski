@@ -11,7 +11,7 @@
           <% end %>
           <div class="card-body">
             <h6 class="card-title"><strong><%= ski.ski_name %></strong></h6>
-              <p class="card-text"><%= ski.explanation %></p>
+              <p class="card-text"><%= ski.explanation.truncate(80, omission: '...') %></p>
           </div>
         </div>
       </div>

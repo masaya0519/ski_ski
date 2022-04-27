@@ -1,4 +1,6 @@
 class Member::SkisController < ApplicationController
+  before_action :authenticate_member!
+
   def show
     @ski = Ski.find(params[:id])
     @genres = Genre.all
@@ -7,7 +9,6 @@ class Member::SkisController < ApplicationController
     end
     @review = Review.new
   end
-  
-  def index
-  end
+
+
 end
