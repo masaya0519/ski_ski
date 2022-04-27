@@ -14,13 +14,17 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :skis, only: [:index, :new, :create, :show, :edit, :update]
-    resources :customers, only: [:index, :show, :edit, :update, :destroy]
+    resources :customers, only: [:index, :show, :edit, :update] do
+      resources :reviews, only: [:destroy]
+    end
     resources :genres, only: [:index, :create, :edit, :update]
   end
 
   scope module: :member do
-    resources :reviews, only: [:new, :create, :index, :destroy]
-    resources :skis, only: [:show]
+    get 'seach' => 'seach#seach'
+    resources :skis, only: [:show, :index] do
+      resources :reviews, only: [:new, :create, :index, :destroy]
+    end
     resources :users, only: [:show, :edit, :update,] do
       collection do
         get 'users/unsubscribe'

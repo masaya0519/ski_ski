@@ -1,8 +1,15 @@
-<ul class="list-group">
-  <li class="list-group-item bg-light">ジャンル検索</li>
-  <% genres.each do |genre| %>
-    <%= link_to genres_path(genre_id: genre.id) do %>
-    <li class="list-group-item bg-transparent bg-gradient text-dark", style="text-decoration: underline;"><%= genre.genre_name %></li>
+<ul class="navbar-nav">
+  <li class="list-group-item">
+    <div class="d-flex flex-row bd-highlight justify-content-center">
+    <% genres.each do |genre| %>
+      <div class="p-1 bd-highlight mx-4">
+        <%= link_to genres_path(genre_id: genre.id) do %>
+        <span class="btn btn-secondary">
+          <%= genre.genre_name %>
+        </span>
+      </div>
+        <% end %>
     <% end %>
-  <% end %>
+    </div>
+  </li>
 </ul>

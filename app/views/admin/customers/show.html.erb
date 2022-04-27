@@ -35,6 +35,22 @@
       </table>
     </div>
 
+    <div class="col-8 mb-2">
+      <table class="table">
+        <tr>
+          <th>レビュー一覧</th>
+          <th>
+            <% @member.reviews.each do |review| %>
+            <div>
+              <%= review.created_at.strftime('%Y/%m/%d') %><%= review.review %>
+              <%= link_to "削除", admin_customer_review_path(@member.id, review), method: :delete %>
+            </div>
+            <% end %>
+          </th>
+        </tr>
+      </table>
+    </div>
+
     <div class="col-12">
       <tr class="text-center">
         <th><%= link_to "編集する",edit_admin_customer_path, class: "btn btn-success offset-4" %></th>

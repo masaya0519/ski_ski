@@ -1,5 +1,5 @@
 class Ski < ApplicationRecord
   belongs_to :genre
   has_one_attached :image
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 end
