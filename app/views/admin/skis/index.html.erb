@@ -10,20 +10,24 @@
     </div>
 　</div>
   <div class="row">
-    <div class="col-md-10 mx-auto">
-      <% @skis.each do |ski| %>
-        <div class="col-8">
-          <%= link_to ski.ski_name, admin_ski_path(ski.id) %>
-          <%= ski.explanation %>
+
+    <% @skis.each do |ski| %>
+    <div class="row"><%= link_to ski.ski_name, admin_ski_path(ski.id) %></div>
+    <div class="row">
+      <div class="col-7">
+        <%= ski.explanation %>
+      </div>
+      <div class="col-5">
+        <div class="row">
+          <div class="col-4">標高</div>
+          <div class="col-2"><%= ski.elevation %>m</div>
         </div>
-        <div class="col-4">
-          <%= ski.elevation %>m
-          <%= ski.running_distance %>m
-          <%= ski.cover %>cm
-          <%= ski.quality%>
-          <%= ski.genre.genre_name %>
-        </div>
-      <% end %>
+        <div class="row"><%= ski.running_distance %>m</div>
+        <div class="row"><%= ski.cover %>cm</div>
+        <div class="row"><%= ski.quality%></div>
+        <div class="row"><%= ski.genre.genre_name %></div>
+      </div>
+    <% end %>
     </div>
   </div>
 </div>
