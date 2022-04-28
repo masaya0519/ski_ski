@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   sessions: 'member/sessions'
 }
 
+  devise_scope :member do
+    post 'member/guest_sign_in', to: 'member/sessions#guest_sign_in'
+  end
+
   namespace :admin do
     resources :skis, only: [:index, :new, :create, :show, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update] do
